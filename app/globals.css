@@ -1,0 +1,165 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body), Georgia, serif;
+  color: #fff;
+  background: #0b1a0b;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-bg {
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Navbar */
+.navbar {
+  position: relative;
+  z-index: 3;
+  margin-top: 2rem;
+  width: min(92%, 1100px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  background: rgba(70, 70, 55, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: system-ui, sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-item.active {
+  border-bottom-color: #fff;
+}
+
+.nav-item:hover {
+  opacity: 0.8;
+}
+
+/* Konten */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  width: min(92%, 900px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0 3rem;
+}
+
+.logo {
+  width: 110px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.pill {
+  font-size: clamp(1.2rem, 2.4vw, 1.9rem);
+  padding: 0.2rem 3rem;
+  border-radius: 999px;
+  background: rgba(120, 120, 110, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.title {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(5rem, 16vw, 13rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  margin: 0.5rem 0 0.8rem;
+}
+
+.desc {
+  max-width: 720px;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  line-height: 1.35;
+}
+
+.actions {
+  margin-top: 2.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  background: linear-gradient(180deg, #3f8a1a, #1f5a0a);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  transition: transform 0.15s, filter 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  justify-content: center;
+  background: linear-gradient(180deg, #4a9a22, #2a6a10);
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 24px;
+  }
+  .btn {
+    min-width: 100%;
+  }
+}

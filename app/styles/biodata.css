@@ -1,0 +1,414 @@
+/* ===== Halaman Data Diri calon siswa (bd-) ===== */
+
+.bd {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 100vh;
+  background: #85964d;
+  font-family: system-ui, "Segoe UI", sans-serif;
+  color: #111;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ---------- Sidebar ---------- */
+.bd-side {
+  background: #d9d9d9;
+  padding: 3rem 1rem 2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.bd-logo {
+  background: #b9d0ad;
+  color: #1c5a2a;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 3.2rem;
+  text-align: center;
+  border-radius: 999px;
+  padding: 0.3rem 0;
+  margin-bottom: 4.5rem;
+  box-shadow: inset 0 0 14px rgba(255, 255, 255, 0.5);
+}
+.bd-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.bd-nav button,
+.bd-out {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: none;
+  border: 0;
+  color: #000;
+  font-size: 1.7rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 16px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+.bd-nav button.active {
+  background: #bcc6b4;
+}
+.bd-nav button.muted {
+  color: #777;
+  cursor: not-allowed;
+}
+.bd-nav button:hover:not(.active):not(.muted),
+.bd-out:hover {
+  background: rgba(0, 0, 0, 0.07);
+}
+.bd-out {
+  margin-top: auto;
+  font-size: 1.9rem;
+}
+
+/* ---------- Konten ---------- */
+.bd-main {
+  padding: 1.4rem 2.6rem 2.5rem;
+  min-width: 0;
+  position: relative;
+}
+.bd-user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  color: #fff;
+}
+.bd-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.bd-user > div {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 18px;
+  padding: 0.3rem 1rem 0.3rem 1.2rem;
+  margin-left: -1.2rem;
+  font-family: Georgia, serif;
+  line-height: 1.25;
+}
+.bd-user strong {
+  display: block;
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+.bd-user small {
+  font-size: 1.05rem;
+}
+
+.bd-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.2rem 0 1.4rem;
+  color: #111;
+}
+.bd-head h1 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(3rem, 6vw, 4.6rem);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.05;
+}
+.bd-head p {
+  font-family: Georgia, serif;
+  color: #fff;
+  font-size: 1.15rem;
+}
+.bd-head svg {
+  color: #111;
+  flex-shrink: 0;
+}
+
+/* ---------- Kartu form ---------- */
+.bd-card {
+  background: #d9d9d9;
+  border-radius: 28px;
+  padding: 1.6rem 2rem 2rem;
+  max-width: 1500px;
+}
+.bd-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+.bd-card-head > div {
+  flex: 1;
+}
+.bd-card-head h2 {
+  font-size: 2.3rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+.bd-card-head p {
+  font-size: 1.1rem;
+}
+.bd-badge {
+  width: 62px;
+  height: 62px;
+  background: #b9dc78;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.bd-edit {
+  align-self: flex-start;
+  background: #4a7a35;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 999px;
+  padding: 0.5rem 2.6rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-family: inherit;
+}
+.bd-edit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.bd-edit:hover:not(:disabled) {
+  filter: brightness(1.15);
+}
+
+.bd-group {
+  margin-top: 0.6rem;
+}
+.bd-label {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 500;
+  margin: 0.5rem 0 0.4rem 0.6rem;
+}
+.bd-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #efefef;
+  border: 2px solid #777;
+  border-radius: 26px;
+  height: 86px;
+  padding: 0 1.4rem;
+  gap: 1.4rem;
+}
+.bd-field.invalid {
+  border-color: #c0392b;
+}
+.bd-ficon {
+  color: #7a7a7a;
+  display: flex;
+  width: 56px;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.bd-field input,
+.bd-field select {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  border: 0;
+  outline: none;
+  font-size: 1.75rem;
+  font-family: inherit;
+  color: #111;
+  min-width: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.bd-field input::placeholder {
+  color: #7a7a7a;
+}
+.bd-field select.kosong {
+  color: #7a7a7a;
+}
+.bd-field:focus-within {
+  border-color: #3a6a25;
+  box-shadow: 0 0 0 3px rgba(74, 122, 53, 0.3);
+}
+.bd-field input:disabled,
+.bd-field select:disabled {
+  cursor: not-allowed;
+  color: #333;
+  -webkit-text-fill-color: #333;
+}
+.bd-chev {
+  position: absolute;
+  right: 2.2rem;
+  pointer-events: none;
+  color: #222;
+  display: flex;
+}
+
+.bd-err {
+  color: #a3261a;
+  font-weight: 600;
+  margin: 0.35rem 0 0 1rem;
+}
+
+/* ---------- Upload ---------- */
+.bd-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  min-height: 190px;
+  background: #e0e3dc;
+  border: 2px dashed #888;
+  border-radius: 26px;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.15rem;
+  color: #222;
+  word-break: break-all;
+}
+.bd-drop small {
+  font-size: 1rem;
+}
+.bd-drop.drag {
+  border-color: #3a6a25;
+  background: #d3ddc9;
+}
+.bd-drop.invalid {
+  border-color: #c0392b;
+}
+.bd-drop.off {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+#ijazah:focus-visible + .bd-err,
+.bd-group:focus-within .bd-drop {
+  outline: 3px solid rgba(74, 122, 53, 0.4);
+}
+
+/* ---------- Pesan & tombol simpan ---------- */
+.bd-msg {
+  margin: 1.2rem auto 0;
+  max-width: 900px;
+  text-align: center;
+  padding: 0.7rem 1rem;
+  border-radius: 16px;
+  font-weight: 600;
+}
+.bd-msg.ok {
+  background: #d9f0c6;
+  color: #1d5a0a;
+}
+.bd-msg.error {
+  background: #f6d6d1;
+  color: #8f1d12;
+}
+.bd-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: min(100%, 900px);
+  margin: 1.4rem auto 0;
+  background: #5d7f3e;
+  color: #fff;
+  border: 3px solid #eee;
+  border-radius: 999px;
+  padding: 0.9rem 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+.bd-save:hover:not(:disabled) {
+  filter: brightness(1.12);
+}
+.bd-save:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 900px) {
+  .bd {
+    grid-template-columns: 1fr;
+  }
+  .bd-side {
+    position: static;
+    height: auto;
+    padding: 1rem;
+  }
+  .bd-logo {
+    margin-bottom: 1rem;
+    font-size: 2.4rem;
+  }
+  .bd-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .bd-nav button,
+  .bd-out {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.7rem;
+  }
+  .bd-nav svg,
+  .bd-out svg {
+    width: 26px;
+    height: 26px;
+  }
+  .bd-out {
+    margin-top: 0.4rem;
+  }
+  .bd-main {
+    padding: 1rem;
+  }
+  .bd-card {
+    padding: 1rem;
+  }
+  .bd-card-head {
+    flex-wrap: wrap;
+  }
+  .bd-label {
+    font-size: 1.3rem;
+  }
+  .bd-field {
+    height: 64px;
+    gap: 0.6rem;
+    padding: 0 0.8rem;
+  }
+  .bd-field input,
+  .bd-field select {
+    font-size: 1.1rem;
+  }
+  .bd-ficon svg {
+    width: 34px;
+    height: 34px;
+  }
+  .bd-head svg {
+    width: 64px;
+    height: 64px;
+  }
+}

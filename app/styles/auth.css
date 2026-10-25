@@ -1,0 +1,485 @@
+/* ===== Gaya halaman portal, login, dan daftar ===== */
+/* Foto latar: taruh di public/images/ dengan nama portal-bg.png dan login-bg.png.
+   Kalau file belum ada, otomatis pakai warna hijau cadangan. */
+
+.portal-page,
+.photo-page,
+.staff-page,
+.dash-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  font-family: system-ui, "Segoe UI", sans-serif;
+  color: #fff;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+.back-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.back-link.light {
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- PORTAL ---------- */
+.portal-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem 3rem;
+  background:
+    linear-gradient(rgba(20, 60, 30, 0.45), rgba(10, 30, 20, 0.6)),
+    url("/images/portal-bg.png") center / cover no-repeat,
+    url("/images/bacgorund.png") center / cover no-repeat,
+    #3d7a4a;
+}
+
+.portal-logo {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  width: 90px;
+  height: auto;
+}
+
+.portal-head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portal-kicker {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: #c8f03a;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.portal-title {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(4rem, 11vw, 7.5rem);
+  line-height: 1;
+}
+
+.portal-sub {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  margin-top: 0.4rem;
+}
+
+.portal-pill {
+  margin-top: 1.5rem;
+  padding: 0.5rem 2.5rem;
+  border-radius: 999px;
+  background: rgba(20, 60, 25, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 1.4rem;
+}
+
+.portal-cards {
+  margin-top: 2rem;
+  width: min(100%, 1100px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.role-card {
+  border-radius: 48px;
+  padding: 2.5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  backdrop-filter: blur(3px);
+  transition: transform 0.2s;
+}
+.role-card:hover {
+  transform: translateY(-6px);
+}
+.role-card h3 {
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  letter-spacing: 0.04em;
+}
+.role-admin {
+  background: rgba(110, 180, 60, 0.55);
+}
+.role-admin h3 {
+  color: #0f4a0f;
+}
+.role-siswa {
+  background: rgba(140, 205, 60, 0.7);
+  padding-top: 3rem;
+  padding-bottom: 2.5rem;
+}
+.role-siswa h3 {
+  color: #1c3a1c;
+}
+.role-kepsek {
+  background: rgba(25, 85, 60, 0.7);
+}
+.role-kepsek h3 {
+  color: #a6e600;
+}
+
+.role-btn {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(100%, 250px);
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  border: 3px solid #1d7a15;
+  font-size: 1.4rem;
+}
+.role-btn:hover {
+  filter: brightness(0.95);
+}
+
+/* ---------- LOGIN ADMIN / KEPSEK ---------- */
+.staff-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+.staff-admin {
+  background: #85964d;
+}
+.staff-kepsek {
+  background: #a3dc9a;
+}
+
+.staff-card {
+  width: min(100%, 880px);
+  border-radius: 90px;
+  padding: 3.5rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.staff-admin .staff-card {
+  background: #325020;
+}
+.staff-kepsek .staff-card {
+  background: #2b584a;
+}
+
+.staff-welcome {
+  font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+  letter-spacing: 0.03em;
+  color: #f2f5e0;
+}
+
+.staff-title {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(5rem, 14vw, 9rem);
+  line-height: 1.05;
+  margin-bottom: 2rem;
+}
+.staff-admin .staff-title {
+  color: #a0e09a;
+}
+.staff-kepsek .staff-title {
+  color: #ffd24a;
+}
+
+.staff-form {
+  width: min(100%, 620px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.staff-input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #dff3e6;
+  border-radius: 999px;
+  height: 78px;
+  overflow: hidden;
+}
+.staff-icon {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 6px solid #6a9a78;
+  flex-shrink: 0;
+}
+.staff-input input {
+  flex: 1;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0 1.5rem;
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  outline: none;
+}
+
+.staff-btn {
+  min-width: 260px;
+  padding: 0.7rem 2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.staff-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.staff-message {
+  margin-top: 2rem;
+  max-width: 560px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* ---------- LOGIN SISWA & DAFTAR (latar foto) ---------- */
+.photo-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1rem 3rem;
+  background:
+    url("/images/login-bg.png") center / cover no-repeat,
+    url("/images/bacgorund.png") center / cover no-repeat,
+    #3f7a2a;
+}
+
+.photo-pill {
+  padding: 0.2rem 3.5rem;
+  border-radius: 999px;
+  background: rgba(220, 235, 225, 0.65);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(3rem, 7vw, 4.5rem);
+  line-height: 1.15;
+  color: #0b4a2a;
+}
+.photo-pill.yellow {
+  color: #e0d400;
+  background: rgba(245, 235, 235, 0.7);
+}
+
+.photo-heading {
+  margin-top: 0.8rem;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: #1d3d0a;
+}
+.photo-heading.small {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: #2e5a1a;
+  margin-top: 1rem;
+}
+.photo-subheading {
+  font-weight: 700;
+  color: #0f4a1a;
+  margin-bottom: 1.2rem;
+}
+.photo-subtitle {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  color: #2d3d10;
+  margin-bottom: 1rem;
+}
+
+.photo-form {
+  width: min(100%, 560px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.green-card {
+  width: 100%;
+  background: #92b450;
+  border-radius: 48px;
+  padding: 2rem 2.2rem 1.8rem;
+  color: #000;
+}
+.green-card label {
+  display: block;
+  margin: 0.8rem 0 0.4rem 1.2rem;
+  font-size: 1.25rem;
+}
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.label-row label {
+  margin-top: 1rem;
+}
+.forgot {
+  color: #000;
+  text-decoration: underline;
+  margin-right: 1rem;
+}
+
+.field-wrap {
+  position: relative;
+  width: 100%;
+}
+.field-wrap input {
+  width: 100%;
+  height: 58px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: #d9d9d9;
+  padding: 0 3.4rem 0 1.8rem;
+  font-size: 1.15rem;
+  color: #111;
+  outline: none;
+}
+.field-wrap input:focus {
+  border-color: #1d7a15;
+}
+.field-wrap.invalid input {
+  border-color: #c0392b;
+}
+.eye-btn {
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+}
+
+.green-btn {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 999px;
+  background: #237a0c;
+  border: 3px solid #a6d98a;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+.green-btn:hover {
+  filter: brightness(1.12);
+}
+.green-btn.narrow {
+  width: 75%;
+}
+
+.switch-text {
+  margin-top: 1.4rem;
+  margin-left: 0.8rem;
+  font-size: 1.05rem;
+}
+.switch-text a {
+  color: #0f4a0f;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-left: 0.2rem;
+}
+.switch-text.outside {
+  margin: 0.4rem 0 0;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+.switch-text.outside a {
+  color: #d8ff7a;
+}
+
+/* ---------- Pesan form ---------- */
+.form-error {
+  margin: 0.4rem 0 0 1.2rem;
+  color: #8f1d12;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+.form-error.center {
+  margin: 0;
+  text-align: center;
+  color: #ffb3a8;
+}
+.form-success {
+  background: #e6f6d8;
+  color: #1d5a0a;
+  border-radius: 14px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- Dashboard sementara ---------- */
+.dash-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #a3dc9a;
+  padding: 1rem;
+}
+.dash-card {
+  background: #2b584a;
+  border-radius: 48px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 560px;
+}
+.dash-note {
+  opacity: 0.75;
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 860px) {
+  .portal-cards {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+  .portal-logo {
+    position: static;
+    margin-bottom: 1rem;
+  }
+  .staff-card {
+    border-radius: 48px;
+    padding: 2.5rem 1.2rem;
+  }
+  .staff-icon {
+    width: 72px;
+  }
+  .staff-input {
+    height: 64px;
+  }
+  .green-btn.narrow {
+    width: 100%;
+  }
+}
